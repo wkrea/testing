@@ -17,8 +17,10 @@ jobs:
       with:
         dotnet-version: 3.1.301
     - name: Install dependencies
-      run: dotnet restore
+      run: dotnet restore ./web-api/
     - name: Build
       run: dotnet build ./web-api/ --configuration Release --no-restore
     - name: Test
-      run: dotnet test ./web-api-tests/ --no-restore --verbosity normal
+      run:  |
+        dotnet restore ./web-api-tests/
+        dotnet test ./web-api-tests/ --no-restore --verbosity normal
