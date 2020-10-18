@@ -9,6 +9,9 @@ on:
 jobs:
   build:
     runs-on: windows-latest
+    defaults:
+      run:
+        working-directory: netcore-unit-testing
 
     steps:
     - uses: actions/checkout@v2
